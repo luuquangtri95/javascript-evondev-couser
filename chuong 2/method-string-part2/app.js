@@ -4,6 +4,7 @@ const myStr = 'FrontEnd Dev';
  * replace: thay thế
  * 2 param: ("chuỗi cần thay thế", "chuỗi mới")
  * =>> trường hợp chuỗi không có thì vẫn giữ nguyên chuỗi cũ
+ * (**** lưu ý quan trong: replace phân biệt chữ hoa chữ thường)
  */
 const myStr = 'FrontEnd Dev';
 console.log(myStr.replace('Dev', 'Designer'));
