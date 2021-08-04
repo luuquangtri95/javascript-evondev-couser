@@ -51,7 +51,7 @@ console.log(myStr.includes('abc'));
  * kiểm tra vị trí của 1 ký tự nào đó trong 1 chuỗi =>> indexOf
  * khác với indexOf là lastIndexOf =>> xem ví dụ
  */
-const myStr = 'FrontEnd Dev';
+const myStr = 'FrontEnd Dev D';
 console.log(myStr.length);
 console.log(myStr.indexOf('D'));
 
