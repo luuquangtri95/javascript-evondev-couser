@@ -1,7 +1,7 @@
 const myStr = 'FrontEnd Dev';
 
 /**
- * replace: thay thế
+ * @param {replace}: thay thế
  * 2 param: ("chuỗi cần thay thế", "chuỗi mới")
  * =>> trường hợp chuỗi không có thì vẫn giữ nguyên chuỗi cũ
  * (**** lưu ý quan trong: replace phân biệt chữ hoa chữ thường)
@@ -16,7 +16,7 @@ const myStr = 'FrontEnd Dev';
 console.log(myStr.repeat(5));
 
 /**
- * slice: cắt
+ * @param {slice}: cắt
  * 2 param: (bắt đầu, kết thúc)
  * =>> kết quả là chuỗi cắt trong khoangr
  * vd: muốn lấy chữ front
@@ -36,16 +36,16 @@ console.log(myStr.slice(0));
 console.log(myStr.slice(-7)); //d Dev D
 
 /**
- * Trim: cắt (khoảng trống)
- * trimStart: loại bỏ khoảng trống bên trái
- * trimEnd: loại bỏ khoảng trống bên trái
+ * @param {Trim}: cắt (khoảng trống)
+ * @param {trimStart}: loại bỏ khoảng trống bên trái
+ * @param {trimEnd}: loại bỏ khoảng trống bên trái
  */
 const myStr = '            FrontEnd Dev D             ';
 console.log(myStr);
 console.log(myStr.trim()); // khoang trống 2 bên bị remove
 
 /**
- * CharAt: lấy ký tự từ vị trí index
+ * @param {CharAt}: lấy ký tự từ vị trí index
  */
 const myStr = 'FrontEnd Dev D';
 console.log(myStr.charAt(0));

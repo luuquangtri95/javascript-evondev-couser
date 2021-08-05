@@ -1,6 +1,6 @@
 /**
- * length: kiểm tra độ dài của chuỗi
- * index: bắt đầU từ 0, vị trí từng ký tự trong chuỗi bao gồm cả khoảng trắng
+ * @param {length}: kiểm tra độ dài của chuỗi
+ * @param {index}: bắt đầU từ 0, vị trí từng ký tự trong chuỗi bao gồm cả khoảng trắng
  * my job front end dev - my name is Tri - i love front end dev
  * 012345678910...............................................37
  */
@@ -10,7 +10,7 @@ const newStr = `my name is ${name} - i love ${job}`;
 console.log(newStr.length);
 
 /**
- * split: tách ra
+ * @param {split}: tách ra
  */
 
 const myStr = 'FrontEnd Dev';
@@ -20,27 +20,27 @@ console.log(myStr.split('/')); // tách ra theo dấu /
 console.log(myStr.split('-')); // tách ra theo dấu -
 
 /**
- * toLowerCase: in thường tất cả chữ trong string
- * toUpperCase: in hoa tất cả chữ trong string
+ * @param {toLowerCase}: in thường tất cả chữ trong string
+ * @param {toUpperCase}: in hoa tất cả chữ trong string
  */
 const myStr = 'FrontEnd Dev';
 console.log(myStr.toLowerCase());
 console.log(myStr.toUpperCase());
 
 /**
- * startsWith: trả về true - fasle =>> kiểm tra xem chuỗi bắt đầu
+ * @param {startsWith}: trả về true - fasle =>> kiểm tra xem chuỗi bắt đầu
  */
 const myStr = 'FrontEnd Dev';
 console.log(myStr.startsWith('Front')); // kiểm tra xem chuỗi bắt đầu là Front đúng hay sai =>> đúng return true - sai return false (****  lưu ý: phân biệt chữ hoa và chữ thường)
 
 /**
- * endswith: rả về true - fasle =>> kiểm tra xem chuỗi kết thúc
+ * @param {endswith}: rả về true - fasle =>> kiểm tra xem chuỗi kết thúc
  */
 const myStr = 'FrontEnd Dev';
 console.log(myStr.endsWith('Dev'));
 
 /**
- * includes: chứa => trả về true - false nếu trong chuỗi có chứa
+ * @param {includes}: chứa => trả về true - false nếu trong chuỗi có chứa
  */
 const myStr = 'FrontEnd Dev';
 console.log(myStr.includes('Dev'));
