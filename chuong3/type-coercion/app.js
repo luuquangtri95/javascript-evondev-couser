@@ -22,8 +22,3 @@ console.log('10' - 10);
  */
 console.log(null + ''); // "null"
 console.log(typeof (null + undefined)); // NaN
-
-
-
-
-

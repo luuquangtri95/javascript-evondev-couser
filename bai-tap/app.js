@@ -2,7 +2,7 @@
  * viết hàm gọi getTaxiCount(passengersCount) nhậN vào số hành khách và trả về số taxi cần gọi để chở số khách đó
  *
  * yêu cầu:
- * - khi số khách lớn hơn 4, ưu tiên dùng xe 7 chỗ
+ * - khi số khách lớn hơn 4, ưu tiên dùng xe 7 chỗ  (***** luu y dk nay)
  * - nếu khách nhỏ hơn 4 hoặc bằng 4 thì dùng xe 4 chỗ
  * - trả về con số duy nhất là tổng của 2 loại xe taxi cần gọi
  */
@@ -62,7 +62,7 @@ console.log(getMaxDigit(1000));
  * Viết hàm compareNumbers(a,b) nhận vào 2 số nguyên a,b bất kì
  * tra về:
  * 1 nếu a > b
- * 0 nếu a = b
+ * 0 nếu a = bs
  * -1 nếu a < b
  */
 function compareNumbers(a, b) {
