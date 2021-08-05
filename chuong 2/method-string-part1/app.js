@@ -50,6 +50,8 @@ console.log(myStr.includes('abc'));
 /**
  * kiểm tra vị trí của 1 ký tự nào đó trong 1 chuỗi =>> indexOf
  * khác với indexOf là lastIndexOf =>> xem ví dụ
+ *
+ * =>> truong hợp không tim thấy thì trả về -1;
  */
 const myStr = 'FrontEnd Dev D';
 console.log(myStr.length);
