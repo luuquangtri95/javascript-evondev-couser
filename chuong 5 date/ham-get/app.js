@@ -49,3 +49,6 @@ console.log(birthday.getMinutes());
 
 //in ra giây
 console.log(birthday.getSeconds());
+
+//in ra timestamp
+console.log(birthday.getTime());
