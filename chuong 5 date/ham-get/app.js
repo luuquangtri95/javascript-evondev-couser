@@ -3,10 +3,11 @@
  * getFullYear()
  */
 
-const birthday = new Date(1995, 2, 10);
+const birthday = new Date(1995, 2, 10); //Fri "Mar" 10 1995 00:00:00 GMT+0700 (Giờ Đông Dương)
 //in ra năm
 console.log(birthday.getFullYear());
 //in ra tháng
+console.log(birthday.getMonth()); // "Mar" tháng 3
 /**
  * đối với hàm getMonth(): 0 - 11
  * 0 tháng 1 (January) Jan
@@ -22,13 +23,13 @@ console.log(birthday.getFullYear());
  * 10 tháng 11 (November) Nov
  * 11 tháng 12 (December) Dec
  */
-console.log(birthday.getMonth());
 
 //in ra ngày của tháng: 1 - 31
-console.log(birthday.getDate()); //5
 
 //in ra thu cua tuan
+console.log(birthday.getDate()); //5
 /**
+ *
  * 0 - 6
  * 0: chủ nhật
  * 1: thứ 2
