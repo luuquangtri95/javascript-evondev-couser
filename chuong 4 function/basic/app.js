@@ -9,7 +9,7 @@
  * =>> sử dụng camelCase =>> có ý nghĩa
  * =>> nến có thêm giá trị mặc định cho parameters => function functionName(parameters = defaultValue)
  */
-console.log(calcSum(1, 2)); // =>> function không bị hosting khi gọi hàm trước khi định nghĩa hàm đó
+console.log(calcSum(1, 2)); // =>> function bị hosting khi gọi hàm trước khi định nghĩa hàm đó
 function calcSum(a = 0, b = 0) {
   return a + b;
   // không có return, hàm trả về " undefined"
