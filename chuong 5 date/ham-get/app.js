@@ -9,18 +9,18 @@ console.log(birthday.getFullYear());
 //in ra tháng
 /**
  * đối với hàm getMonth(): 0 - 11
- * 0 tháng 1
- * 1 tháng 2
- * 2 tháng 3
- * 3 tháng 4
- * 4 tháng 5
- * 5 tháng 6
- * 6 tháng 7
- * 7 tháng 8
- * 8 tháng 9
- * 9 tháng 10
- * 10 tháng 11
- * 11 tháng 12
+ * 0 tháng 1 (January) Jan
+ * 1 tháng 2 (February) Feb
+ * 2 tháng 3 (March) Mar
+ * 3 tháng 4 (April) Apr
+ * 4 tháng 5 (May) May
+ * 5 tháng 6 (June) Jun
+ * 6 tháng 7 (July) Jul
+ * 7 tháng 8 (August) Aug
+ * 8 tháng 9 (September) Sep
+ * 9 tháng 10 (October) Oct
+ * 10 tháng 11 (November) Nov
+ * 11 tháng 12 (December) Dec
  */
 console.log(birthday.getMonth());
 

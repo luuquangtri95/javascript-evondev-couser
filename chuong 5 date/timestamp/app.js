@@ -3,7 +3,7 @@
  *
  * timestamp tinhs ra kết quả là "miliseconds"
  * timestamp: dựa trên UNIX time (wikipedia) 1/1/1970
- *
+ * dùng timeStamp để tính toán + - * / và nhiều mục đích khác như count down, online bao nhiêu phút trước...vv
  *
  */
 const now = new Date();
