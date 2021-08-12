@@ -7,3 +7,8 @@ const logName = function () {
   console.log('your name');
 };
 console.log(logName());
+
+// IIFE
+(function () {
+  console.log('abc');
+})();
