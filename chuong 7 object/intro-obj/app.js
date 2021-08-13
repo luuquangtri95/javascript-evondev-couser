@@ -38,3 +38,43 @@ console.log(student);
 delete student.name;
 
 console.log(student.name); // undefined
+/************************************************************************************ */
+/**
+ * object literal
+ * obj construster
+ */
+
+// literal
+const objLiteral = {};
+// constructor
+const objconstructor = new Object();
+
+const student = {
+  name: 'evondev',
+  age: 27,
+  male: true,
+  'last-name': 'tuan', // note (khoong thể truy xuất = student.last-name được =>> phải dùng student["last-name"])
+  hi: function () {
+    console.log('hello');
+  },
+};
+
+// 2 cách truy xuất giá trị của obj
+// 2.1 dot notation
+console.log(student.name);
+// 2.2 bracket notation ["key"]
+console.log(student['age']);
+console.log(student['last-name']);
+
+// thay đổi gia trị của obj, phải biết key của obj
+student.age = 20;
+student.male = 'male';
+student.isDev = true;
+student['is-dev'] = 'is dev';
+student.hello = function () {
+  console.log('hello');
+};
+console.log(student);
+
+// delete object
+delete student['last-name'];
