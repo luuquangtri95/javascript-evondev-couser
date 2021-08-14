@@ -18,3 +18,7 @@ const b = { lastName: 'bi' };
 const c = Object.assign(a, b);
 const d = { ...a, ...b };
 console.log(c);
+
+// clone obj bằng assign
+const cloneObj = Object.assign({}, student);
+console.log(cloneObj);

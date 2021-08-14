@@ -72,3 +72,49 @@ function isEqualObj(obj1, obj2) {
 console.log(isEqualObj({ a: 1, b: 2 }, { a: 1, b: 2, c: 3 }));
 // cach 2: check values
 function isEqualObj(obj1, obj2) {}
+
+/**
+ * viết hàm clone object không dung spread
+ */
+
+function cloneObj(obj) {
+  // if (typeof obj === 'object' && !Array.isArray(obj) && typeof obj !== null) return true;
+  const newObj = JSON.parse(JSON.stringify(obj));
+  return newObj;
+}
+console.log(cloneObj({ a: 1, b: 2, c: { c1: 2, c: 3 } }));
+
+//create an onject student with name is tri and age 18
+const student = {};
+student.name = 'tri';
+student.age = 26;
+
+/**
+ * nhận vào 1 obj điểm số, tính điểm trung bình
+ */
+
+function calcAvgMark(obj) {
+  if (!obj) return -1;
+  // avg = sum / length
+  const length = Object.keys(obj).length;
+  let sum = 0;
+  for (let key in obj) {
+    const value = obj[key];
+    sum += value;
+  }
+  return (sum / length).toFixed(1);
+}
+console.log(calcAvgMark({ math: 10, englist: 8 }));
+
+/**
+ * viết hàm isEqual(obj1,obj2)
+ * true: nếu số lượng keys của 2 obj bằng nhau, hoặc trả về ghía trị của từng key
+ * ngược lại false
+ */
+
+function isEqual(obj1, obj2) {
+  const lengthObj1 = Object.keys(obj1).length;
+  const lengthObj2 = Object.keys(obj2).length;
+  if (lengthObj1 === lengthObj2) return true;
+  return false;
+}

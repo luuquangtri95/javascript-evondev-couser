@@ -14,6 +14,20 @@ const student = {
   },
 };
 
+const student2 = {
+  name: 'easy frontend',
+  age: 22,
+};
+const moreProps = {
+  isHero: true,
+  gender: femal,
+};
+const cloneObjNew = Object.assign({}, student, moreProps);
+const cloneObjNew2 = {
+  ...student2,
+  ...moreProps,
+};
+// =>>>>>>>
 const { name, age, isDev, ...rest } = student;
 /**
  * tương đương với:
