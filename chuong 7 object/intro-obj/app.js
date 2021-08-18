@@ -70,7 +70,7 @@ console.log(student['last-name']);
 student.age = 20;
 student.male = 'male';
 student.isDev = true;
-student['is-dev'] = 'is dev';
+student['is-dev'] = 'is dev'; // lưu ý chỗ này
 student.hello = function () {
   console.log('hello');
 };
