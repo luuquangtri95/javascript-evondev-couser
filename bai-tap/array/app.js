@@ -126,3 +126,73 @@ function changeArrayToOj(arr) {
 }
 
 console.log(changeArrayToOj(itemList));
+
+/**
+ * cho mảng gồm nhiều giá trị [1,1000,false, null,"evondev",undefined,"javascript",[1,2,3]] viết fn loại bỏ các giá trị falsy ra khỏi mảng giữ lại truthy. falsy: 0 null undefined false "" NaN
+ */
+// new Boolean
+
+const arr = [1, 1000, false, null, 'evondev', undefined, 'javascript', [1, 2, 3], '', NaN];
+function removeFalsyValue(arr) {
+  // cach 1
+  // return arr.filter((item) => Boolean(item));
+
+  // cach2
+  let newArr = [];
+  for (const value of arr) {
+    console.log(value);
+    if (Boolean(value)) {
+      newArr.push(value);
+    }
+  }
+  return newArr;
+}
+console.log(removeFalsyValue(arr));
+
+/**
+ * cho 1 mangr phức tạp, [[1,2,3], [false,null],[1,5,6],["javascript"],[888,999,[90]]] và kết quả mong muốn là 1 mảng đã được làm phẳng
+ */
+
+const compflexArr = [[1, 2, 3], [false, null], [1, 5, 6], ['javascript'], [888, 999, [90, 91]]];
+function flatArr(arr) {
+  // cachs 1:
+  // let flatNewArr = [];
+  // let arrRemain;
+  // for (let i = 0; i < arr.length; i++) {
+  //   for (let j = 0; j < arr[i].length; j++) {
+  //     // console.log(arr[i][j].length);
+  //     if (!Array.isArray(arr[i][j])) {
+  //       flatNewArr.push(arr[i][j]);
+  //     } else if (Array.isArray(arr[i][j])) {
+  //       arrRemain = arr[i][j];
+  //       for (let k = 0; k < arrRemain.length; k++) {
+  //         if (!Array.isArray(arrRemain[k])) {
+  //           flatNewArr.push(arrRemain[k]);
+  //         }
+  //       }
+  //     }
+  //   }
+  // }
+
+  //cach 2
+  const result = arr.flat(2);
+  return result;
+  // return flatNewArr;
+}
+
+console.log(flatArr(compflexArr));
+
+/**
+ * đảo ngược số nguyên 1234 -> 4321 , -567 -> -765
+ * Math.sign(số dương) return 1
+ * Math.sign(số âm) return -1
+ */
+function reverseNumber(number) {
+  // conver number to string
+  // split =>> [1,2,3]
+  // reverse => [3,2,1]
+  //join => 321 => string
+  const value = parseInt(number.toString().split('').reverse().join('')) * Math.sign(number);
+  console.log(value);
+}
+console.log(reverseNumber(-1234));

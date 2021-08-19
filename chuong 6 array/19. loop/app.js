@@ -19,3 +19,10 @@ for (let i = 0; i < number.length; i++) {
     continue; //tiep tuc vong lap
   }
 }
+const number = [1, 2, 3, 4, 5];
+for (let i = number.length - 1; i >= 0; i--) {
+  console.log(`the value ${number[i]}`);
+  for (let j = number.length - 1; j >= 0; j--) {
+    console.log(number[j]);
+  }
+}
