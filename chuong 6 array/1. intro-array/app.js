@@ -31,3 +31,17 @@ console.log(student3[2]);
 console.log(student3[3]);
 // lấy phần tử cuối cùng trong mảng sẽ là độ dài của mảng - 1 =>> array.length - 1
 console.log(student3[student3.length - 1]);
+
+/**
+ * mảng 2 chiều
+ */
+const board = [
+  [1, 2, 3],
+  [4, 5, 6],
+  [7, 8, 9],
+];
+board[0]; //[1,2,3]
+
+board[0][1]; // 2
+board[1][2]; // 6
+board[3][0]; // 7

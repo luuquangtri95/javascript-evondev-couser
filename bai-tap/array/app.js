@@ -157,26 +157,24 @@ const compflexArr = [[1, 2, 3], [false, null], [1, 5, 6], ['javascript'], [888, 
 function flatArr(arr) {
   // cachs 1:
   // let flatNewArr = [];
-  // let arrRemain;
   // for (let i = 0; i < arr.length; i++) {
-  //   for (let j = 0; j < arr[i].length; j++) {
-  //     // console.log(arr[i][j].length);
-  //     if (!Array.isArray(arr[i][j])) {
-  //       flatNewArr.push(arr[i][j]);
-  //     } else if (Array.isArray(arr[i][j])) {
-  //       arrRemain = arr[i][j];
-  //       for (let k = 0; k < arrRemain.length; k++) {
-  //         if (!Array.isArray(arrRemain[k])) {
-  //           flatNewArr.push(arrRemain[k]);
-  //         }
-  //       }
-  //     }
+  //   let item = arr[i];
+  //   if (Array.isArray(arr[i])) {
+  //     flatArr(item);
+  //   } else {
+  //     flatNewArr.push(item);
   //   }
   // }
 
   //cach 2
-  const result = arr.flat(2);
-  return result;
+  // const result = arr.flat(2);
+  // return result;
+
+  //cach 3
+  return arr.reduce((pre, cur) => {
+    return pre.concat(Array.isArray(cur) ? flatArr(cur) : cur);
+  }, []);
+
   // return flatNewArr;
 }
 
@@ -196,3 +194,64 @@ function reverseNumber(number) {
   console.log(value);
 }
 console.log(reverseNumber(-1234));
+
+/**
+ * viết chương trình có tên fizzbuzz đầu vào là 1 số nguyên, chyaj từ 1 tới số nguyên đó rồi kiểm tra số chia hết cho 2 thì in ra "fizz", nếu chia hết cho 3 thì in buzz, chia 2 3 thi fizzbuzz
+ */
+
+function fizzbuzz(number) {
+  for (let i = 0; i <= number; i++) {
+    if (i % 3 === 0 && i % 2 === 0) {
+      console.log('fizzbuzz');
+    } else if (i % 2 === 0) {
+      console.log('fizz');
+    } else if (i % 3 === 0) {
+      console.log('buzz');
+    }
+  }
+}
+console.log(fizzbuzz(3));
+
+/**
+ * cho 1 chuỗi bất kì, đếm só lượng ký tự u e o a i
+ * vd: evondev => 3
+ */
+
+function countVowels(str) {
+  let count = 0;
+  let char = 'ueoai';
+  for (let c of str.toLowerCase()) {
+    if (char.includes(c)) {
+      count++;
+    }
+  }
+  return count;
+}
+console.log(countVowels('LUU QUANG TRI'));
+
+//cho 1 mang: [1,1,1,2,3,5,5,2,6,7,7,8,8,9,3] trả về 1 mảng unique
+let arr = [1, 1, 1, 2, 3, 5, 5, 2, 6, 7, 7, 8, 8, 9, 3];
+function uniquArr(arr) {
+  let newArr = [];
+  for (let i = 0; i < arr.length; i++) {
+    if (!newArr.includes(arr[i])) {
+      newArr.push(arr[i]);
+    }
+  }
+  return newArr;
+}
+console.log(uniquArr(arr));
+
+/**
+ * viết 1 fn xử lý mảng lớn phân thành nhiều mảng con dựa vào so nguyênd dầu vào [1,2,3,4,5] , 2 =>> [[1,2],[3,4],[5]]
+ */
+function splitArr(arr, number) {
+  let newArr = [];
+  let index = 0;
+  while (index < arr.length) {
+    newArr.push(arr.slice(index, index + number));
+    index += number;
+  }
+  return newArr;
+}
+console.log(splitArr([1, 2, 3, 4, 5, 6], 3));
