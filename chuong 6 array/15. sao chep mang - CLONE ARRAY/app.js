@@ -13,3 +13,7 @@ console.log(sliceStudent);
 //spread operator
 const spreadArr = [...student];
 console.log(spreadArr);
+
+// rest và spreads
+// rest: gom list =>> 1 array
+// spread: 1 array -> list

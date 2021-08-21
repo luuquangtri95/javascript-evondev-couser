@@ -9,3 +9,43 @@ const listNumberDouble = listNumber.map((value, index) => {
 });
 
 console.log(listNumberDouble);
+
+// hậu nguyễn
+/**
+ * biến đỔi phần tử này sang phần tử khác (ánh xạ)
+ * =>> số lượng phần tử không đổi
+ * return 1 mảng mới
+ */
+
+const numberList = [1, 2, 3, 4];
+console.log(numberList.map((x) => x * 2));
+
+const wordList = ['easy', 'frontend'];
+console.log(wordList.map((x) => `super-${x}`));
+
+/**
+ * map(mappingFn)
+ * map(transformFn)
+ * map(callbackFn)
+ */
+
+function map(numberList, mappingFn) {
+  if (!Array.isArray(numberList) || typeof mappingFn !== 'function') return undefined;
+  let newArr = [];
+  for (let i = 0; i < numberList.length; i++) {
+    const element = numberList[i];
+    const newElement = mappingFn(element, i);
+    newArr.push(newElement);
+  }
+  return newArr;
+}
+
+function mappingFn(element, idx) {
+  if (idx % 2) {
+    return element * 2;
+  } else {
+    return element * 3;
+  }
+}
+
+map([1, 2, 3, 4], mappingFn);
