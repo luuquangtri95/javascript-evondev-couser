@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>innertHTML</title>
+  </head>
+  <body>
+    <div id="spinner">
+      Lorem ipsum dolor sit amet consectetur, adipisicing elit. Rerum facere ab alias, cupiditate
+      voluptatum dolorem pariatur <span>officia</span> eos eaque ut quia odio natus! Doloribus, eos.
+      Dignissimos quos iusto velit fugit.
+    </div>
+    <script>
+      // innerHtml: lấy ra nội dung của selector bao gồm cả html
+      const spinner = document.querySelector('#spinner');
+      console.log(spinner.innerHTML);
+      spinner.innerHTML = '<h1>demo</h1>';
+    </script>
+  </body>
+</html>

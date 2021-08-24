@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>hasAttribute</title>
+  </head>
+  <body>
+    <a href="" class="name">ádas</a>
+    <ul>
+      <li class="item">item</li>
+      <li class="item">item</li>
+      <li class="item">item</li>
+      <li class="item">item</li>
+      <li class="item">item</li>
+    </ul>
+    <script>
+      // hasAttribute("attr")
+      // kiểm tra selector có attr nào không, nếu có trả về 'true' không có trả về false
+      const a = document.querySelector('.name');
+      if (a.hasAttribute('href')) {
+        a.setAttribute('class', 'active');
+      }
+    </script>
+  </body>
+</html>

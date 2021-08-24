@@ -1,5 +1,5 @@
 /**
- * document.querySelector
+ * document.querySelector("selector")
  */
 
 const sigleNode = document.querySelector('h1');

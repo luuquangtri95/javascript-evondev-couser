@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>inner Text</title>
+  </head>
+  <body>
+    <div id="spinner">
+      Lorem ipsum dolor sit amet consectetur, adipisicing elit. Rerum facere ab alias, cupiditate
+      voluptatum dolorem pariatur <span style="display: none">officia</span> eos eaque ut quia odio
+      natus! Doloribus, eos. Dignissimos quos iusto velit fugit.
+    </div>
+    <script>
+      // innerText giống textContent
+      // khi trong đoạn text có thuộc tính display none thì k lấy đc
+      // loai bỏ khoảng trắng
+      const spinner = document.querySelector('#spinner');
+      console.log(spinner.innerText);
+    </script>
+  </body>
+</html>

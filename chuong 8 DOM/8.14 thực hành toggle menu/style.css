@@ -1,0 +1,44 @@
+html {
+  font-size: 62.5%;
+}
+
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  text-decoration: none;
+}
+
+body {
+  font-size: 2rem;
+  line-height: 1;
+}
+
+.menu {
+  position: fixed;
+  width: 300px;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  list-style: none;
+  transform: translateX(100%);
+  transition: all 0.2s linear;
+}
+
+.menu.is-show {
+  transform: translateX(0);
+}
+
+.menu-link {
+  display: block;
+  padding: 20px 15px;
+  color: #333;
+  border-bottom: 1px solid #eee;
+}

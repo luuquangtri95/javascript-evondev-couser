@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>setAttribute</title>
+  </head>
+  <body>
+    <p>abc</p>
+    <a href="" class="button">clicked !</a>
+    <script>
+      // selector.setAttribute("attribute",value)
+      const p = document.querySelector('p');
+      p.setAttribute('href', 'google.com.vn');
+
+      const aEl = document.querySelector('.button');
+      aEl.setAttribute('target', '_blank');
+      aEl.setAttribute('href', 'google.com');
+    </script>
+  </body>
+</html>

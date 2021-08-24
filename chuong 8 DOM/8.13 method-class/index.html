@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>các thuộc tính class trong DOM</title>
+  </head>
+  <style>
+    .isActive {
+      color: red;
+    }
+  </style>
+  <body>
+    <div class="container abc dc e">
+      Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quidem voluptatum, commodi ex ipsum
+      adipisci voluptates consequuntur sunt reprehenderit nobis iure quis, cumque debitis accusamus
+      ducimus pariatur exercitationem alias nostrum aperiam!
+    </div>
+    <script>
+      // 1. selector.classList.add("active")
+      // 2.selector.classList.remove("active")
+      // 3.selector.classList.contains("active") : kiểm tra có chứa class đó hay không
+      // 4.selector.classList.toggle("active")
+      // 5.selector.className
+      const container = document.querySelector('.container');
+      container.classList.add('isActive');
+      container.classList.remove('container');
+      console.log(container.classList.contains('container'));
+      console.log(container.className);
+    </script>
+  </body>
+</html>

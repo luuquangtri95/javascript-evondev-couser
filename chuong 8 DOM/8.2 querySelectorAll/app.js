@@ -6,4 +6,5 @@
  */
 
 const multiNode = document.querySelectorAll('.item');
-console.log(multiNode);
+
+
