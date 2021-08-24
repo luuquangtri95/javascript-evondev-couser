@@ -255,3 +255,222 @@ function splitArr(arr, number) {
   return newArr;
 }
 console.log(splitArr([1, 2, 3, 4, 5, 6], 3));
+
+// bài tập hậu nguyễn
+function printNumber() {
+  for (let i = 1; i <= 10; i++) {
+    console.log(i);
+  }
+}
+console.log(printNumber());
+
+function printEvenOfNumbers() {
+  for (let i = 1; i <= 10; i++) {
+    if (i % 2 === 0) {
+      console.log(i);
+    }
+  }
+}
+console.log(printEvenOfNumbers());
+
+// tìm max
+function findMax(numberList) {
+  // linh canh
+  let max = numberList[0];
+  for (let i = 0; i < numberList.length; i++) {
+    if (numberList[i] > max) {
+      max = numberList[i];
+    }
+  }
+  return max;
+}
+
+console.log(findMax([1, 5, 2, 1, 6, 8, 0]));
+
+function findMax(numberList) {
+  // linh canh
+  let max = numberList[0];
+  numberList.foreach((number) => {
+    if (number > max) {
+      max = number;
+    }
+  });
+  return max;
+}
+
+function findMax(numberList) {
+  // linh canh
+  let max = numberList[0];
+  numberList.foreach((number) => {
+    if (number > max) {
+      max = number;
+    }
+  });
+  return max;
+}
+function findMax(numberList) {
+  return numberList.reduce((max, number) => (number > max ? number : max));
+}
+console.log(findMax([1, 5, 2, 1, 6, 8, 0]));
+
+// tim từ dài nhất trong mảng
+
+function findLongestWord(wordList) {
+  let longWord = wordList[0];
+  for (word of wordList) {
+    if (word.length > longWord.length) {
+      longWord = word;
+    }
+  }
+  return longWord;
+}
+console.log(findLongestWord(['a', 'ab', 'abc', 'fsadsa']));
+
+// using reduce
+
+function findLongestWordReduce(wordList) {
+  return wordList.reduce(
+    (longestWord, currentWord) =>
+      currentWord.length > longestWord.length ? currentWord : longestWord,
+    wordList[0]
+  );
+}
+console.log(findLongestWordReduce(['a', 'ab', 'abc', 'fsadsa']));
+
+/**
+ * viết hàm createArrayInRange(a,b) để tạo mảng gồm các số trong khoảng [a,b] có bao gồm a,b
+ * với a, b là các số thoải điều kiện -100 < a < b < 100
+ */
+
+// using for..i
+function createArrayInRange(a, b) {
+  if (a < -100 && b > 100) return -1;
+  let newArr = [];
+  for (let i = a; i <= b; i++) {
+    newArr.push(i);
+  }
+  return newArr;
+}
+console.log(createArrayInRange(1, 5));
+
+// using Array.from
+function createArrayInRange(a, b) {
+  const RANGE = b - a;
+  let arr = Array.from({ length: RANGE + 1 }, (_, idx) => idx + a);
+  console.log(arr);
+}
+console.log(createArrayInRange(-2, 1));
+
+// viết hàm isPrime(n) nhận vào số nguyên dương 0 <=n< 1000  trả về true/false
+
+function isPrime(n) {
+  for (let i = 2; i < n - 1; i++) {
+    let sqrt = Math.sqrt(i);
+    console.log(sqrt);
+    if (n % sqrt !== 0) {
+      return i;
+    }
+  }
+}
+console.log(isPrime(17));
+
+// tìm số nguyên tố
+
+function isPrimeV1(n) {
+  if (n < 0) return false;
+  for (let i = 2; i < n - 1; i++) {
+    console.log(i);
+    if (n % i === 0) {
+      return false;
+    }
+  }
+  return true;
+}
+
+console.log(isPrimeV1(5));
+
+function isPrimeV2(n) {
+  if (n < 2) return false;
+  for (let i = 2; i < Math.sqrt(n); i++) {
+    if (n % i === 0) {
+      return false;
+      break;
+    }
+  }
+  return true;
+}
+console.log(isPrimeV2(2));
+
+// liệt kê ước số của n
+function getDivisorListV1(n) {
+  if (n.toString().length === 1) return [n];
+  let newArr = [];
+  for (let i = 0; i <= n; i++) {
+    if (n % i === 0) {
+      newArr.push(i);
+    }
+  }
+  return newArr;
+}
+console.log(getDivisorListV1(12));
+
+function getDivisorListV2(n) {
+  if (n.toString().length === 1) return [n];
+  let newArr = [];
+  Array.from({ length: n }, (_, idx) => idx + 1).filter((x) => {
+    if (n % x === 0) {
+      newArr.push(x);
+    }
+  });
+  return newArr;
+}
+console.log(getDivisorListV2(10));
+
+function getDivisorListV3(n) {
+  if (n.toString().length === 1) return [n];
+  let newArr = [];
+  Array.from({ length: n }, (_, idx) => idx + 1).forEach((item) => {
+    if (item <= Math.sqrt(n) && n % item === 0) {
+      newArr.push(item);
+    }
+    if (item > Math.sqrt(n) && n % item === 0) {
+      newArr.push(item);
+    }
+  });
+  return newArr;
+}
+
+console.log(getDivisorListV3(12));
+
+// kiểm tra  số hoàn hảo
+function isPerfectNumber(n) {
+  if (n < 1 && n > 1000) return false;
+  let sum = 0;
+  for (let i = 0; i < n; i++) {
+    if (n % i === 0) {
+      sum += i;
+    }
+  }
+  if (sum === n) {
+    return true;
+  }
+  return false;
+}
+console.log(isPerfectNumber(6));
+
+/**
+ * viết hàm transformNumber(numberList) để biến đôi các số hiện tại theo công thức f(i)=f(i-1)+f(i+1)
+ */
+
+function transformNumber(numberList) {
+  if (!Array.isArray(numberList) || numberList.length === 0) return [];
+  let newArr = [];
+
+  if (numberList.length <= 1) return numberList;
+  if (numberList.length === 2) return numberList.reverse();
+  if (numberList.length > 2) {
+    for (let i = 0; i < numberList.length; i++) {}
+  }
+  return newArr;
+}
+console.log(transformNumber([2, 4, 6, 8]));
