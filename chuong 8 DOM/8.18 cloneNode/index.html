@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>clone Node</title>
+  </head>
+  <body>
+    <script>
+      // element / selector.cloneNode()
+      const text = document.createTextNode('hello');
+      const h1 = document.createElement('h1');
+      h1.appendChild(text);
+      body.appendChild(h1);
+      const body = document.body;
+      const h1Clone = h1.cloneNode(true);
+      body.appendChild(h1Clone);
+    </script>
+  </body>
+</html>

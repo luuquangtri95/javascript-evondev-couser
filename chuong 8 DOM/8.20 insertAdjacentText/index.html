@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>insertAdjacentText</title>
+  </head>
+  <body>
+    <!-- beforeBegin -->
+    <h3>
+      <!-- afterBegin -->
+      <span></span>
+      <!-- beforeEnd -->
+    </h3>
+    <!-- afterEnd -->
+
+    <script>
+      // inserAdjacentText
+      const h3 = document.querySelector('h3');
+      // h3.insertAdjacentText('positon', 'text');
+      // position: beforebegin,afterbegin,beforeend, afterend
+      h3.insertAdjacentText('beforebegin', 'begin');
+      h3.insertAdjacentText('afterbegin', 'begin');
+      h3.insertAdjacentText('beforeend', 'begin');
+      h3.insertAdjacentText('afterend', 'begin');
+
+      // inserAdjacentElement
+
+      // inserAdjacentHTML
+    </script>
+  </body>
+</html>
