@@ -416,13 +416,58 @@ console.log(isAllPerfectNumbersV5([6, 28]));
 
 function calcAvgOfAllEvenNumbers(numberList) {
   if (!Array.isArray(numberList) || numberList.length <= 1) return 0;
+  console.log(numberList.some((number) => number <= 0));
+  if (
+    numberList.some((number) => number <= 0) ||
+    numberList.findIndex((number) => number % 2 === 0) < 0 // tim không có số chẵn trả về trừ -1 < 0 return 0
+  )
+    return 0;
 
-  //processing
-  let newArr = numberList.filter((item) => checkEvenNumber(item));
-  return Math.round(newArr.reduce((pre, cur) => pre + cur) / newArr.length);
+  // main
+  let newNumberList = numberList.filter((number) => number % 2 === 0);
+  let sum = newNumberList.reduce((pre, cur) => {
+    return pre + cur;
+  }, 0);
+
+  return Math.round(sum / newNumberList.length);
 }
 
-function checkEvenNumber(number) {
-  if (number % 2 === 0) return number;
+console.log(calcAvgOfAllEvenNumbers([1, 5]));
+
+// =>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+/**
+ * đây là phần fixed code để code gọn hơn và tốt hơn
+ */
+
+/**
+ * bài 1: viết hàm createArrayInRange(a,b) tạo ra mảng gồm các số trong khoảng [a,b]
+ * điều kiện: -100 < a < 100
+ */
+
+// using for...i
+
+function createArrayInRange(a, b) {
+  if (!Number(a) || !Number(b)) return false;
+  let newArr = [];
+
+  // main
+  for (let i = a; i <= b; i++) {
+    newArr.push(i);
+  }
+
+  return newArr;
 }
-console.log(calcAvgOfAllEvenNumbers([]));
+
+console.log(createArrayInRangeV1(-2, 1));
+
+// ussing Array.from
+function createArrayInRangeV1(a, b) {
+  if (!Number(a) || !Number(b)) return false;
+  const RANGE = b - a;
+
+  // main
+  let NumberList = Array.from({ length: RANGE + 1 }, (_, idx) => idx + a);
+
+  return NumberList;
+}
+console.log(createArrayInRangeV1(-2, 1));
