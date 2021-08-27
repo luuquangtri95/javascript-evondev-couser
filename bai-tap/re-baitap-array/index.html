@@ -4,11 +4,30 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Debug code</title>
   </head>
   <body>
     <script>
-      
+      function isAllPerfectNumbersV4(numberList) {
+        if (!Array.isArray(numberList) || numberList.length === 0) return false;
+        let newArr = numberList.reduce(
+          (pre, cur, index, array) => (isPerfectNumber(cur) ? [...pre, cur] : pre),
+          []
+        );
+        if (newArr.length === numberList.length) return true;
+        return false;
+      }
+      function isPerfectNumber(number) {
+        if (number <= 1) return false;
+        let sum = 0;
+        for (let i = 0; i < number; i++) {
+          if (number % i === 0) {
+            sum += i;
+          }
+        }
+        return sum === number ? true : false;
+      }
+      isAllPerfectNumbersV4([6, 28]);
     </script>
   </body>
 </html>

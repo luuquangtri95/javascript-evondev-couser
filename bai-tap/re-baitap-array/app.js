@@ -334,4 +334,95 @@ function isPerfectNumber(number) {
 
 console.log(isAllPerfectNumbers([1, 6]));
 
+// using filter
 
+function isAllPerfectNumbersV2(numberList) {
+  if (!Array.isArray(numberList) || numberList.length === 0) return false;
+  console.log(numberList.filter((number) => isPerfectNumber(number)).length);
+  // điều kiện khi filter lọc ra 1 mảng mới thoả mãn length mảng mới sẽ bằng với length mảng cũ
+  return numberList.filter((number) => isPerfectNumber(number)).length === numberList.length;
+}
+function isPerfectNumber(number) {
+  if (number <= 1) return false;
+  let sum = 0;
+  for (let i = 0; i < number; i++) {
+    if (number % i === 0) {
+      sum += i;
+    }
+  }
+  return sum === number ? true : false;
+}
+
+console.log(isAllPerfectNumbersV2([6, 28]));
+
+// using every
+
+function isAllPerfectNumbersV3(numberList) {
+  if (!Array.isArray(numberList) || numberList.length === 0) return false;
+  return numberList.every((number) => isPerfectNumber(number));
+}
+
+function isPerfectNumber(number) {
+  if (number <= 1) return false;
+  let sum = 0;
+  for (let i = 0; i < number; i++) {
+    if (number % i === 0) {
+      sum += i;
+    }
+  }
+  return sum === number ? true : false;
+}
+console.log(isAllPerfectNumbersV3([1, 6]));
+
+// using reduce
+
+function isAllPerfectNumbersV4(numberList) {
+  if (!Array.isArray(numberList) || numberList.length === 0) return false;
+  let newArr = numberList.reduce(
+    (pre, cur, index, array) => (isPerfectNumber(cur) ? [...pre, cur] : pre),
+    []
+  );
+  if (newArr.length === numberList.length) return true;
+  return false;
+}
+function isAllPerfectNumbersV5(numberList) {
+  if (!Array.isArray(numberList) || numberList.length === 0) return false;
+  let count = numberList.reduce((pre, cur) => {
+    if (isPerfectNumber(cur)) {
+      pre = pre + 1;
+    }
+    return pre;
+  }, 0);
+  return count === numberList.length ? true : false;
+}
+
+function isPerfectNumber(number) {
+  if (number <= 1) return false;
+  let sum = 0;
+  for (let i = 0; i < number; i++) {
+    if (number % i === 0) {
+      sum += i;
+    }
+  }
+  return sum === number ? true : false;
+}
+console.log(isAllPerfectNumbersV5([6, 28]));
+
+/**
+ * viết hàm calcAvgOfAllEvenNumbers(numberList)
+ * trả về 1 con số duy nhất cho biết trung bình của tất cả số chẵn có sẵn trong mảng, nếu kết là số thực thì làm tròn về số nguyên gần nhất
+ *
+ */
+
+function calcAvgOfAllEvenNumbers(numberList) {
+  if (!Array.isArray(numberList) || numberList.length <= 1) return 0;
+
+  //processing
+  let newArr = numberList.filter((item) => checkEvenNumber(item));
+  return Math.round(newArr.reduce((pre, cur) => pre + cur) / newArr.length);
+}
+
+function checkEvenNumber(number) {
+  if (number % 2 === 0) return number;
+}
+console.log(calcAvgOfAllEvenNumbers([]));
