@@ -32,11 +32,13 @@ console.log(wordList.map((x) => `super-${x}`));
 function map(numberList, mappingFn) {
   if (!Array.isArray(numberList) || typeof mappingFn !== 'function') return undefined;
   let newArr = [];
+
   for (let i = 0; i < numberList.length; i++) {
     const element = numberList[i];
     const newElement = mappingFn(element, i);
     newArr.push(newElement);
   }
+
   return newArr;
 }
 

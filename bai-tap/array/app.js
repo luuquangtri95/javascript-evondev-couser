@@ -120,6 +120,7 @@ console.log(obj);
  */
 function changeArrayToOj(arr) {
   return arr.reduce((a, b) => {
+    console.log(a);
     a[b.id] = b.value;
     return a;
   }, {});
@@ -474,3 +475,27 @@ function transformNumber(numberList) {
   return newArr;
 }
 console.log(transformNumber([2, 4, 6, 8]));
+
+/**
+ * test bài tập
+ */
+
+const itemList = [
+  { id: 'key1', value: 'Superman' },
+  { id: 'key2', value: 'Super woment' },
+  { id: 'key3', value: 'Super girl' },
+];
+
+function converArrToObjUseFor(itemList) {
+  if (!Array.isArray(itemList)) return false;
+
+  let newObj = {};
+
+  for (let i = 0; i < itemList.length; i++) {
+    newObj[i] = itemList[i];
+  }
+
+  // return obj
+  return newObj;
+}
+console.log(converArrToObjUseFor(itemList));

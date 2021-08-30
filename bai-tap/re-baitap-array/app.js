@@ -471,3 +471,404 @@ function createArrayInRangeV1(a, b) {
   return NumberList;
 }
 console.log(createArrayInRangeV1(-2, 1));
+
+/**
+ * kiểm tra số nguyên tố
+ * số nguyên tố là số chỉ có 2 ước là 1 và chính nó
+ * number < 2 =>> k phải snt
+ *
+ * tại sao lại kiểm tra đến sqrt(number)
+ * vi khi nhập vào 1 số rất lớn thì sẽ chạy rất nhiều, giảm hiệu xuất, trong khi chạy từ i - sqrt(number) 1 số chia thì return false k phải snt
+ */
+
+function isPrimeV1(number) {
+  if (number < 2) return false;
+  if (number >= 2) {
+    for (let i = 2; i < number - 1; i++) {
+      if (number % i === 0) {
+        return false;
+      }
+    }
+  }
+  return true;
+}
+console.log(isPrimeV1(6));
+
+function isPrimeV2(number) {
+  if (number < 2) return false;
+
+  for (let i = 2; i <= Math.sqrt(number); i++) {
+    console.log(i);
+    if (number % i === 0) {
+      return false;
+    }
+  }
+  return true;
+}
+console.log(isPrimeV2(99));
+
+/**
+ * viết hàm getDivisorList(n) trả về 1 mảng các ước của n
+ */
+
+// for...i
+function getDivisorListV1(n) {
+  if (!Number(n)) return false;
+  let newArr = [];
+
+  // main
+  for (let i = 0; i <= n; i++) {
+    if (n % i === 0) {
+      newArr.push(i);
+    }
+  }
+
+  return newArr;
+}
+
+console.log(getDivisorListV1(12));
+
+// Array form + filter
+function getDivisorListV2(n) {
+  if (!Number(n)) return false;
+  // main
+  return Array.from({ length: n }, (_, idx) => idx + 1).filter((item) => n % item === 0);
+}
+console.log(getDivisorListV2(12));
+
+//Array.from + foreach + sort
+function getDivisorListV3(n) {
+  if (!Number(n)) return false;
+  let newArr = [];
+
+  // main
+  Array.from({ length: n }, (_, idx) => idx + 1).forEach((item) => {
+    if ((item <= Math.sqrt(n) || item >= Math.sqrt(n)) && n % item === 0) {
+      newArr.push(item);
+    }
+  });
+
+  return newArr;
+}
+console.log(getDivisorListV3(12));
+
+/**
+ * viết hàm isPerfectNumber(n) kiểm tra số hoàn hảo hay không
+ * số hoàn hảo: ước chung + lại bằng number
+ * 6 = 1 + 2 + 3
+ */
+
+function isPerfectNumber(n) {
+  if (!Number(n)) return false;
+  let sumNumber = 0;
+  // main
+  for (let i = 0; i < n; i++) {
+    if (n % i === 0) {
+      sumNumber += i;
+    }
+  }
+  if (sumNumber === n) return true;
+  return false;
+}
+console.log(isPerfectNumber(7));
+
+/**
+ * viết hàm transformNumbers(numberList) biến đổi theo công thức : f(i) = f(i-1) +f(i+1) i = index
+ * trường hợp đầu mảng lấy phần tử liền kề
+ * trường hợp có ít hơn 1 phần tử giữ nguyên không biến đổi
+ */
+
+//for...i
+
+function transformNumbers(numberList) {
+  if (!Array.isArray(numberList)) return false;
+  if (numberList.length === 0) return [];
+  if (numberList.length <= 1) return numberList;
+
+  let newArr = [];
+
+  // main
+  for (let i = 0; i < numberList.length; i++) {
+    // numberlist.length = 4
+    if (i === 0) {
+      newArr.push(numberList[i + 1]);
+    }
+    if (i === numberList.length - 1) {
+      newArr.push(numberList[i - 1]);
+    }
+    if (i >= 1 && i < numberList.length - 1) {
+      newArr.push(numberList[i - 1] + numberList[i + 1]);
+    }
+  }
+
+  return newArr;
+}
+console.log(transformNumbers([2]));
+
+// foreach
+
+function transformNumbers(numberList) {
+  if (!Array.isArray(numberList)) return false;
+  if (numberList.length === 0) return [];
+  if (numberList.length <= 1) return numberList;
+  let newArr = [];
+
+  numberList.forEach((number, index) => {
+    if (index === 0) {
+      newArr.push(numberList[index + 1]);
+    }
+    if (index === numberList.length - 1) {
+      newArr.push(numberList[index - 1]);
+    }
+    if (index > 0 && index < numberList.length - 1) {
+      newArr.push(numberList[index - 1] + numberList[index + 1]);
+    }
+  });
+
+  return newArr;
+}
+
+console.log(transformNumbers([2, 4, 6, 8]));
+
+// map()
+function transformNumbers(numberList) {
+  if (!Array.isArray(numberList)) return false;
+  let newNumberList = [...numberList];
+  if (newNumberList.length === 0) return [];
+  if (newNumberList.length <= 1) return newNumberList;
+
+  return newNumberList.map((item, index) => {
+    if (index === 0) {
+      return newNumberList[index + 1];
+    }
+    if (index === newNumberList.length - 1) {
+      return newNumberList[index - 1];
+    }
+    if (index > 0 && index < newNumberList.length - 1) {
+      return newNumberList[index - 1] + newNumberList[index + 1];
+    }
+  });
+}
+console.log(transformNumbers([2, 4]));
+
+/**
+ * viết hàm hasPrime(numberList)
+ * trả về true nếu có ít nhất 1 số nguyên tố
+ */
+
+// for...i
+function hasPrimeV1(numberList) {
+  if (!Array.isArray(numberList) || numberList.length === 0) return false;
+  let flag = false;
+
+  // main
+  for (let i = 0; i < numberList.length; i++) {
+    let number = numberList[i];
+    if (isPrime(number)) {
+      flag = true;
+      break;
+    }
+  }
+
+  return flag;
+}
+
+function isPrime(number) {
+  if (number < 2) return false;
+  for (let i = 2; i <= Math.sqrt(number); i++) {
+    if (number % i === 0) {
+      return false;
+    }
+  }
+  return true;
+}
+console.log(hasPrimeV1([1, 2, 6, 8]));
+
+//foreach (foreach not breack :v)
+function hasPrimeV2(numberList) {
+  if (!Array.isArray(numberList) || numberList.length === 0) return false;
+  let flag = false;
+
+  // main
+  numberList.forEach((number) => {
+    if (isPrime(number)) {
+      flag = true;
+    }
+  });
+
+  return flag;
+}
+function isPrime(number) {
+  if (number < 2) return false;
+  for (let i = 2; i <= Math.sqrt(number); i++) {
+    if (number % i === 0) {
+      return false;
+    }
+  }
+  return true;
+}
+console.log(hasPrimeV2([1, 4, 6, 8]));
+
+// find (khi không thoả mãn sẽ trả về undefined)
+function hasPrimeV3(numberList) {
+  if (!Array.isArray(numberList) || numberList.length === 0) return false;
+
+  // main
+  return numberList.find((number) => isPrime(number)) >= 0;
+}
+function isPrime(number) {
+  if (number < 2) return false;
+  for (let i = 2; i <= Math.sqrt(number); i++) {
+    if (number % i === 0) {
+      return false;
+    }
+  }
+
+  return true;
+}
+console.log(hasPrimeV3([1, 4, 6, 8]));
+
+// findIndex (khi không thoả mãn sẽ trả về -1)
+function hasPrimeV4(numberList) {
+  if (!Array.isArray(numberList) || numberList.length === 0) return false;
+
+  // main
+  return numberList.findIndex((number) => isPrime(number)) !== -1;
+}
+
+function isPrime(number) {
+  if (number < 2) return false;
+  for (let i = 2; i <= Math.sqrt(number); i++) {
+    if (number % i === 0) {
+      return false;
+    }
+  }
+
+  return true;
+}
+console.log(hasPrimeV4([1, 2, 6, 8]));
+
+// some (khi không thoả mãn sẽ trả về -1)
+function hasPrimeV5(numberList) {
+  if (!Array.isArray(numberList) || numberList.length === 0) return false;
+
+  // main
+  return numberList.some((number) => isPrime(number));
+}
+
+function isPrime(number) {
+  if (number < 2) return false;
+  for (let i = 2; i <= Math.sqrt(number); i++) {
+    if (number % i === 0) {
+      return false;
+    }
+  }
+
+  return true;
+}
+console.log(hasPrimeV5([1, 4, 6, 8]));
+
+/**
+ * viết hàm isAllperfectNumbers(numberList)
+ * trả về true nết tất cả là số hoàn hảo
+ */
+
+// for...i
+function isAllperfectNumbers(numberList) {
+  if (!Array.isArray(numberList) || numberList.length === 0) return false;
+  let flag = false;
+
+  // main
+  for (let i = 0; i < numberList.length; i++) {
+    let number = numberList[i];
+    if (isPerfectNumber(number)) {
+      flag = true;
+    }
+    break;
+  }
+
+  return flag;
+}
+
+function isPerfectNumber(number) {
+  let sum = 0;
+
+  for (let i = 0; i < number; i++) {
+    if (number % i === 0) {
+      sum += i;
+    }
+  }
+
+  return sum === number ? true : false;
+}
+console.log(isAllperfectNumbers([1, 6]));
+
+//reduce
+function isAllperfectNumbersV1(numberList) {
+  if (!Array.isArray(numberList) || numberList.length === 0) return false;
+
+  let newArr = numberList.reduce((pre, cur) => {
+    if (isPerfectNumber(cur)) {
+      pre.push(cur);
+    }
+    console.log(pre);
+    return pre;
+  }, []);
+
+  return newArr.length === numberList.length ? true : false;
+}
+function isPerfectNumber(number) {
+  let sum = 0;
+
+  for (let i = 0; i < number; i++) {
+    if (number % i === 0) {
+      sum += i;
+    }
+  }
+
+  return sum === number ? true : false;
+}
+
+console.log(isAllperfectNumbersV1([1, 6]));
+
+// every()
+function isAllperfectNumbersV1(numberList) {
+  if (!Array.isArray(numberList) || numberList.length === 0) return false;
+
+  // main
+  return numberList.every((number) => isPerfectNumber(number));
+}
+function isPerfectNumber(number) {
+  let sum = 0;
+
+  for (let i = 0; i < number; i++) {
+    if (number % i === 0) {
+      sum += i;
+    }
+  }
+
+  return sum === number ? true : false;
+}
+
+console.log(isAllperfectNumbersV1([6, 28]));
+
+/**
+ * viết hàm calcAvgOfAllEvenNumbers(numberList)
+ * trả về 1 con số duy nhất cho biết trung bình cộng của tất cả số chẵn trong mảng, làm tròn về số nguyên gần nhất
+ */
+
+function calcAvgOfAllEvenNumbers(numberList) {
+  if (!Array.isArray(numberList) || numberList.length === 0) return 0;
+  if (
+    numberList.some((number) => number <= 0) ||
+    numberList.findIndex((number) => number % 2 === 0) < 0
+  )
+    return 0;
+  // main
+  let evenNumberList = numberList.filter((number) => number % 2 === 0);
+  let calcEvenNumber = evenNumberList.reduce((pre, cur) => pre + cur);
+
+  return Math.round(calcEvenNumber / evenNumberList.length);
+}
+
+console.log(calcAvgOfAllEvenNumbers([1, 2]));

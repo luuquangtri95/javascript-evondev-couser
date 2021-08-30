@@ -12,6 +12,10 @@ console.log(reduce);
 
 /**
  * reduce(callbackFn, initialValue)
+ * dùng khi cần tính toán để ra 1 kết quả cuối cùng
+ *
+ * reduce(accumulator,currentValue,index => {},initialValue)
+ * ==>> nếu không có truyền vào initalValue thì giá trị khởi tạo sẽ lấy từ accumulator
  */
 
 const result = [2, 4, 6].reduce((sum, number) => sum + number, 0);
@@ -27,11 +31,26 @@ function reduce(arr, callbackFn, initialValue) {
   if (!Array.isArray(arr) || typeof callbackFn !== 'function') {
     throw new Error('invalid parameter');
   }
+
   // arr is an array
   if (arr.length === 0) {
     if (initialValue === undefined) throw new Error('should have initalvalue when arr is empty');
     return initialValue;
   }
+
   const hasInitialValue = initialValue !== undefined;
+  const startIndex = hasInitialValue ? 0 : 1;
   const accumulator = hasInitialValue ? initialValue : arr[0];
+
+  for (let i = startIndex; i < arr.length; i++) {
+    const newAccumulator = callbackFn(accumulator, arr[i], i);
+    accumulator = newAccumulator;
+  }
+
+  return accumulator;
 }
+
+function calcSum(prevSum, number, idx) {
+  return prevSum + number;
+}
+console.log(reduce([2, 4, 6]), calcSum, 0);
