@@ -30,7 +30,6 @@ export function hasTwoDigitsWithSum(n, sum) {
       }
     }
     for (let j = i; j < numberList.length; j++) {
-      console.log(j);
       if (numberList.length <= 3) {
         if (numberList[i] === sum || numberList[j] === sum) {
           return false;
@@ -46,4 +45,4 @@ export function hasTwoDigitsWithSum(n, sum) {
   return false;
 }
 
-console.log(hasTwoDigitsWithSum(124, 4));
+console.log(hasTwoDigitsWithSum(242, 4));
