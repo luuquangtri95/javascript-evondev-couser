@@ -6,18 +6,24 @@ key là character có xuất hiện trong str. Nếu là khoảng trắng thì k
 value là số lần xuất hiện của key
  */
 
-export function statisticsCharacters(str) {
+function statisticsCharacters(str) {
   if (!String(str) || str === '') return {};
-  let count = 0;
-  let obj = {};
 
-  let strList = str.split('').map((item) => {
-    if (item === ' ') {
-      item = 'space';
+  const strList = str.split('');
+
+  return strList.reduce((prev, curr) => {
+    if (curr === ' ') {
+      curr = 'space';
     }
-    return item;
-  });
 
-  return obj;
+    if (!prev.hasOwnProperty(curr)) {
+      // kiểm tra key có trong obj hay không bằng hasOwnProperty(truyền vào key)
+      prev[curr] = 1;
+    } else {
+      prev[curr] += 1;
+    }
+
+    return prev;
+  }, {});
 }
 console.log(statisticsCharacters('aa b cc '));

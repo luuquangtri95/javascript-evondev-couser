@@ -9,6 +9,7 @@ console.log(typeof 10);
 const number1 = '5';
 const number2 = '2.3';
 console.log(parseInt(number1));
+console.log(Number(number1));
 console.log(parseFloat(number2));
 
 //Math.abs(): giá tri tuyệt đối
