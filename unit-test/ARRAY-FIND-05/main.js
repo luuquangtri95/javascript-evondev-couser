@@ -14,3 +14,22 @@ function findSecondLargestNumber(numberList) {
 console.log(findSecondLargestNumber([1])); // undefined
 console.log(findSecondLargestNumber([1, 2])); // 1
 console.log(findSecondLargestNumber([1, 2, 3, 4])); // 3
+
+// thuật toán sẵp xếp
+function findSecondLargestNumber(numberList) {
+  for (let i = 0; i < numberList.length; i++) {
+    for (let j = i + 1; j < numberList.length; j++) {
+      console.log(j);
+      let temp;
+      if (numberList[i] < numberList[j]) {
+        temp = numberList[i];
+        numberList[i] = numberList[j];
+        numberList[j] = temp;
+      }
+    }
+  }
+  return numberList[1];
+}
+console.log(findSecondLargestNumber([1, 2, 3, 4]));
+console.log(findSecondLargestNumber([1])); // undefined
+console.log(findSecondLargestNumber([1, 2])); // 1
