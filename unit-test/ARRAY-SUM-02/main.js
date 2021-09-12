@@ -27,3 +27,5 @@ console.log(sumAllDigits([])); // 0
 console.log(sumAllDigits([4])); // 4
 console.log(sumAllDigits([123, 4])); // 10 vì lấy 1 + 2 + 3 + 4 = 10
 console.log(sumAllDigits([1234, 55])); // 20 vì lấy 1 + 2 + 3 + 4 + 5 + 5 = 20
+
+console.log([123, 3].join('').split(''));

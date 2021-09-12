@@ -65,6 +65,7 @@ console.log(student.name);
 // 2.2 bracket notation ["key"]
 console.log(student['age']);
 console.log(student['last-name']);
+console.log(student['abc']);
 
 // thay đổi gia trị của obj, phải biết key của obj
 student.age = 20;
