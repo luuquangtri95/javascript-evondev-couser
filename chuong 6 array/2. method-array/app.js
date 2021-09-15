@@ -13,6 +13,7 @@
  */
 
 const arrayName = [1, 2, 3, 4, 5, 2];
+console.log(arrayName.indexOf(3));
 console.log(arrayName.length);
 // console.log(arrayName.reverse());
 console.log(arrayName.join(' '));

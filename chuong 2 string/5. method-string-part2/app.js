@@ -31,9 +31,9 @@ console.log(myStr.repeat(5));
  * ---------------------------------- -1 =>> D sẽ là -1
  */
 const myStr = 'FrontEnd Dev D';
+console.log(myStr.slice(-5, -2)); //d Dev D
 console.log(myStr.slice(0, 4));
 console.log(myStr.slice(0));
-console.log(myStr.slice(-7)); //d Dev D
 
 /**
  * @param {Trim}: cắt (khoảng trống)
