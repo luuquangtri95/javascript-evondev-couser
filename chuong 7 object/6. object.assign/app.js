@@ -22,3 +22,16 @@ console.log(c);
 // clone obj bằng assign
 const cloneObj = Object.assign({}, student);
 console.log(cloneObj);
+
+// object assign trong DOM
+const h1 = document.createElement('h1');
+const body = document.body;
+h1.innerText = 'luu quang tri';
+h1.className = 'test test-2';
+
+Object.assign(h1.style, {
+  color: 'red',
+  backgoundColor: '#333',
+});
+
+body.appendChild(h1);
