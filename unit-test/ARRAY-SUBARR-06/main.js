@@ -17,7 +17,7 @@ function findMaxSumArray(numberList) {
     let currNumber = numberList[i];
 
     if (prevNumber >= currNumber) {
-      if (subArr.length > 2) subArrList.push(subArr);
+      if (subArr.length >= 2) subArrList.push(subArr);
 
       subArr = [currNumber];
     }
@@ -26,14 +26,27 @@ function findMaxSumArray(numberList) {
       subArr.push(currNumber);
     }
 
-    if (i === numberList.length - 1 && subArr.length > 2) {
+    if (i === numberList.length - 1 && subArr.length >= 2) {
       subArrList.push(subArr);
     }
   }
-  
-  
-}
 
-console.log(findMaxSumArray([1, 2, 3, 1, 2, 4]));
+  if (subArrList.length === 1) return subArr;
+
+  for (let i = 0; i < subArrList.length; i++) {
+    if (
+      sumArr(subArrList[i]) > sumArr(subArrList[i + 1]) ||
+      sumArr(subArrList[i]) === sumArr(subArrList[i + 1])
+    ) {
+      return subArrList[i];
+    } else {
+      return subArrList[i + 1];
+    }
+  }
+}
+function sumArr(arr) {
+  return arr.reduce((a, b) => a + b);
+}
+console.log(findMaxSumArray([1, 2, 3, 0, 2, 4]));
 console.log(findMaxSumArray([]));
 console.log(findMaxSumArray([1, 2, 3]));

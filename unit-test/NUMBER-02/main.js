@@ -10,7 +10,7 @@ export function isDecreasingNumber(n) {
       pre.push(parseInt(cur));
       return pre;
     }, []);
-  console.log(arrNumber);
+
   //processing
   for (let i = 0; i < arrNumber.length; i++) {
     if (arrNumber[i] - arrNumber[i + 1] < 0) {
