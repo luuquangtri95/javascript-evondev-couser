@@ -1,26 +1,21 @@
-/**
- * Thay thế params thành value tương ứng
-Viết hàm fillPath(path, params) để thay thế các chuỗi params trong path bằng các giá trị tương ứng trong
-object params.
- */
-
 function fillPath(path, params) {
   if (!String(path) || path.trim() === '') return '';
   if (params === {}) return '';
 
-  const pathList = path.split('/');
+  const pathItemList = path.split('/');
 
-  for (let i = 0; i < pathList.length; i++) {
-    pathList[i] = pathList[i].slice(pathList[i].indexOf(':') + 1);
+  for (let i = 0; i < pathItemList.length; i++) {
+    pathItemList[i] = pathItemList[i].slice(pathItemList[i].indexOf(':') + 1);
 
+    // for in an obj params
     for (let key in params) {
-      if (pathList[i] === key) {
-        pathList[i] = params[key];
+      if (pathItemList[i] === key) {
+        pathItemList[i] = params[key];
       }
     }
   }
 
-  return pathList.join('/');
+  return pathItemList.join('/');
 }
 
 console.log(fillPath('/products/:productId', { productId: 123 }));

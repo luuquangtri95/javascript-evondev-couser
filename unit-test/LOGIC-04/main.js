@@ -20,7 +20,7 @@ function findMostFrequentNumber(numberList) {
   }, {});
 
   for (let key in objArrList) {
-    if (max === undefined || objArrList[max] < objArrList[key]) {
+    if (max === 0 || objArrList[max] < objArrList[key]) {
       max = key;
     }
   }
@@ -31,4 +31,5 @@ function findMostFrequentNumber(numberList) {
 console.log(findMostFrequentNumber([1, 2, 3, 2, 3, 3, 3, 4])); // 3
 
 console.log(findMostFrequentNumber([1])); // 1
+
 console.log(findMostFrequentNumber([1, 2, 3, 2])); // 2
