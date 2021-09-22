@@ -1,8 +1,14 @@
+/**
+ * nếu không tìm thấy key thì return về undefined
+ */
+
 const student = {
   id: 1,
   name: 'Quang Tri',
   isHero: true,
 };
+
+console.log(student['abc']); /// không tìm thấy key return  "undefined"
 
 const keyList = Object.keys(student); // ["id", "name","isHero"]
 

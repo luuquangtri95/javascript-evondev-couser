@@ -18,6 +18,25 @@ function fillPath(path, params) {
   return pathItemList.join('/');
 }
 
+function fillPath(path, params) {
+  if (!String(path) || path.trim() === '') return '';
+  if (params === {}) return '';
+
+  const pathItemList = path.split('/');
+
+  return pathItemList
+    .map((word) => {
+      word = word.slice(word.indexOf(':') + 1);
+      for (let key in params) {
+        if (word === key) {
+          word = params[key];
+        }
+      }
+      return word;
+    })
+    .join('/');
+}
+
 console.log(fillPath('/products/:productId', { productId: 123 }));
 console.log(
   fillPath('/categories/:categoryId/products/:productId', {

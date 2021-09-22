@@ -17,6 +17,21 @@ function isDecreasingNumber(n) {
   }
 }
 
+function isDecreasingNumber(n) {
+  let remaining = n;
+  while (remaining >= 10) {
+    let currNumber = remaining % 10; // 1
+
+    remaining = Math.trunc(remaining / 10); // 1232
+
+    let remainingNumber = remaining % 10; // 2
+
+    if (currNumber > remainingNumber || currNumber === remainingNumber) return false;
+  }
+
+  return true;
+}
+
 console.log(isDecreasingNumber(11)); //--> false
 console.log(isDecreasingNumber(321)); //--> true
 console.log(isDecreasingNumber(12321)); //--> false

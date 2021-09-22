@@ -50,4 +50,7 @@ function mappingFn(element, idx) {
   }
 }
 
-map([1, 2, 3, 4], mappingFn);
+// map([1, 2, 3, 4], mappingFn);
+
+console.log(map([1, 2, 3], (x) => x + 1));
+console.log(map([1, 2, 3], (x, idx) => (idx % 2 === 0 ? x + 1 : x * 2)));

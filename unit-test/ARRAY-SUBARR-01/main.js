@@ -24,7 +24,7 @@ function findAllIncreasingSubArr(numberList) {
       // check if we need to reset subArr
       if (subArr.length >= 2) subArrList.push(subArr);
 
-      subArr = [currNumber];
+      subArr = [currNumber]; 
     }
 
     if (prevNumber < currNumber) {
