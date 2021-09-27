@@ -1,0 +1,3 @@
+function removeStudentById(studentList, studentId){
+  
+}

@@ -17,6 +17,6 @@ function generateFibonancy(n) {
   return arr.includes(n) ? true : false;
 }
 
-console.log(hasFibonaciNumber([4, 6, 7])); // false
-console.log(hasFibonaciNumber([0, 1, 2, 3, 4, 5])); // true
-console.log(hasFibonaciNumber([89])); // true
+console.log(hasFibonancyNumber([4, 6, 7])); // false
+console.log(hasFibonancyNumber([0, 1, 2, 3, 4, 5])); // true
+console.log(hasFibonancyNumber([89])); // true

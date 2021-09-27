@@ -13,19 +13,19 @@ export function isIncreasingNumberByDistance(n, x) {
   if (!Number(n) || !Number(x)) return false;
   if (n < 0) return false;
 
-  const arrNumber = n
-    .toString()
-    .split('')
-    .reduce((prev, cur) => {
-      prev.push(parseInt(cur));
-      return prev;
-    }, []);
+  // const arrNumber = n
+  //   .toString()
+  //   .split('')
+  //   .reduce((prev, cur) => {
+  //     prev.push(parseInt(cur));
+  //     return prev;
+  //   }, []);
 
-  for (let i = 0; i < arrNumber.length; i++) {
-    if (arrNumber[i] + x === arrNumber[i + 1]) {
-      return true;
-    }
-  }
-  return false;
+  // for (let i = 0; i < arrNumber.length; i++) {
+  //   if (arrNumber[i] + x === arrNumber[i + 1]) {
+  //     return true;
+  //   }
+  // }
+  // return false;
 }
-console.log(isIncreasingNumberByDistance(123, 1));
+
