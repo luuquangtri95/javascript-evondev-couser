@@ -30,7 +30,7 @@ const cloneObjNew2 = {
 // =>>>>>>>
 const { name, age, isDev, ...rest } = student;
 /**
- * tương đương với:
+ * ! tương đương với:
  * const name = student.name
  * const age = student.age
  * const isDev = student.isDev
@@ -41,7 +41,7 @@ console.log(name, age, isDev);
 function whatYourInfo(name, age, school) {
   console.log(name, age, school);
 }
-// func with object parameter
+// ! func with object parameter
 function whatYourInfo(obj) {
   console.log(obj.name, obj.age, obj.school);
 }
@@ -52,7 +52,7 @@ const newObj = {
 };
 console.log(whatYourInfo(newObj));
 
-// object destruturing paremater
+// ! object destruturing paremater
 function whatYourInfo({ name, age, school }) {
   console.log(name, age, school);
 }

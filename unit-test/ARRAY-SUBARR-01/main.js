@@ -7,7 +7,7 @@ numberList.
 Mảng có tính chất tăng dần phải có ít nhất 2 phần tử và phần tử tại vị trí bất kỳ luôn lớn phần từ liền
 trước nó (trừ phần tử đầu tiên)
 
-findAllIncreasingSubArr([1, 2, 3, -5, -10, 5, 1
+findAllIncreasingSubArr([1, 2, 3, -5, -10, 5, 1]
  */
 
 function findAllIncreasingSubArr(numberList) {

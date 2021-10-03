@@ -88,4 +88,4 @@ function timeSince(date) {
 //1 ngày = 1 * 24 * 60 * 60 = 86400
 //1 giowf = 1 * 60 * 60 = 3600
 //1 phút = 1 * 60 = 60
-console.log(timeSince('Mon Aug 09 2019 02:08:20 GMT+0700 (Giờ Đông Dương)'));
+console.log(timeSince('Mon Aug 09 2021 02:08:20 GMT+0700 (Giờ Đông Dương)'));

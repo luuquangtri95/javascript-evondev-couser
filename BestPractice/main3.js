@@ -254,7 +254,7 @@ function sortArr(numberList) {
 
   return numberList;
 }
-console.log(sortArr([1,5,3,4,2])); // 5 4 3 2 1
+console.log(sortArr([1, 5, 3, 4, 2])); // 5 4 3 2 1
 
 // let a = [1, 2, 3, 4];
 // let value = a[2]; //3
@@ -311,9 +311,7 @@ for (let i = 0; i < arr.length; i++) {
 
 console.log(newArr);
 
-
-
-[1, 2, 3, 4, 5, 6, 7]
+[1, 2, 3, 4, 5, 6, 7];
 
 /**
  * i = 0
@@ -322,23 +320,23 @@ console.log(newArr);
  * j = 2
  * j = 3
  * j = 4
- * 
+ *
  * i = 1
  * j = 0 => a[j] a[j+1] => 1 5 => 5 1 4 3 2
  * j = 1
  * j = 2
  * j = 3
  * j = 4
- * 
+ *
  * i = 2
  * j = 0 => a[j] a[j+1] => 1 5 => 5 1 4 3 2
  * j = 1
  * j = 2
  * j = 3
  * j = 4
- * 
+ *
  * ....
- * 
+ *
  * i = 4
  * j = 0 => a[j] a[j+1] => 1 5 => 5 1 4 3 2
  * j = 1
@@ -347,11 +345,569 @@ console.log(newArr);
  * j = 4
  */
 
-
 // i = 0; j = i + 1 => 1 5 => 5 1 4 3 2
 // i = 1; j = i + 1 => 1 4 => 5 4 1 3 2
 // i = 2; j = i + 1 => 1 3 => 5 4 3 1 2
 // i = 3; j = i + 1 => 1 2 => 5 4 3 2 1
 
-1 5 2
+// [5,4,3,2,1]
+// [5,4] [3,2] [1]
 
+function group(numberList) {
+  let arr = [];
+  let list = [];
+
+  for (let i = 0; i < numberList.length; i++) {
+    arr.push(numberList[i]);
+    for (let j = 1; j < numberList.length; j++) {
+      arr.push(numberList[j]);
+      if (j === numberList.length - 1 || arr.length === 2) {
+        list.push(arr);
+        arr = [];
+      }
+    }
+    break;
+  }
+
+  return list;
+}
+
+console.log(group([5, 4, 3, 2, 1]));
+
+function findAllDecreasingSubArr(numberList) {
+  let arr = [];
+  let listArr = [];
+
+  for (let i = 0; i < numberList.length; i++) {
+    let currNumber = numberList[i];
+    let nextNumber = numberList[i + 1];
+
+    if (currNumber > nextNumber) {
+      arr.push(currNumber);
+    } else {
+      arr.push(currNumber);
+      if (i === numberList.length - 1 || arr.length >= 3) listArr.push(arr);
+      arr = [];
+    }
+  }
+
+  return listArr;
+}
+
+console.log(findAllDecreasingSubArr([3, 2, 1, 15, 10, 9, 5]));
+
+// 29/09/2021
+
+function countNumbers(numberList) {
+  if (!Array.isArray(numberList) || numberList.length === 0) return 0;
+
+  let newArr = [];
+
+  for (let i = 0; i < numberList.length; i++) {
+    let currNumber = numberList[i];
+    let nextNumber = numberList[i + 1];
+    if (currNumber > nextNumber) {
+      newArr.push(nextNumber);
+    }
+  }
+
+  return newArr;
+}
+console.log(countNumbers([1, 2, 3, 10, 9, 8]));
+console.log(countNumbers([1, 2, 3]));
+
+function countPositiveEvenNumbers(numberList) {
+  if (!Array.isArray(numberList) || numberList.length === 0) return 0;
+
+  let newArr = [];
+
+  for (let i = 0; i < numberList.length; i++) {
+    let number = numberList[i];
+    if (number > 0 && number % 2 === 0) {
+      newArr.push(number);
+    }
+  }
+
+  return newArr;
+}
+
+console.log(countPositiveEvenNumbers([-2, -1])); // 0
+console.log(countPositiveEvenNumbers([-2, -1, 1, 2, 4])); // 2 (2 và 4 thoả điều kiện)
+
+function countUniqueNumbers(numberList) {
+  if (!Array.isArray(numberList) || numberList.length === 0) return 0;
+
+  let newArr = [];
+
+  for (let i = 0; i < numberList.length; i++) {
+    let number = numberList[i];
+    if (!newArr.includes(number)) {
+      newArr.push(number);
+    }
+  }
+
+  return newArr.length;
+}
+console.log(countUniqueNumbers([1, 1, 1]));
+console.log(countUniqueNumbers([]));
+console.log(countUniqueNumbers([1, 2, 3]));
+console.log(countUniqueNumbers([1, 2, 2, 3, 1]));
+
+function countNumbersNotInB(a, b) {
+  if (!Array.isArray(a) || a.length === 0) return 0;
+  if (!Array.isArray(b) || b.length === 0) return 0;
+
+  let newArr = [];
+
+  for (let i = 0; i < a.length; i++) {
+    let number = a[i];
+    if (!b.includes(number)) {
+      newArr.push(number);
+    }
+  }
+
+  return newArr;
+}
+console.log(countNumbersNotInB([1, 2, 3], [4, 5])); // 3
+console.log(countNumbersNotInB([1, 2, 3], [1, 2, 3])); // 0
+console.log(countNumbersNotInB([1, 2, 3], [3, 4, 5])); // 2
+
+function sumEvenNumbers(numberList) {
+  if (!Array.isArray(numberList) || numberList.length === 0) return 0;
+
+  let sum = 0;
+
+  for (let i = 0; i < numberList.length; i++) {
+    let currNumber = numberList[i];
+    let nextNumber = numberList[i + 1];
+
+    if (nextNumber > currNumber && nextNumber % 2 === 0) {
+      sum += nextNumber;
+    }
+  }
+
+  return sum;
+}
+console.log(sumEvenNumbers([-10, -4, 2, 8, 5]));
+console.log(sumEvenNumbers([2, 8, 5, 4]));
+
+function sumAllDigits(numberList) {
+  if (!Array.isArray(numberList) || numberList.length === 0) return 0;
+
+  let sum = 0;
+
+  for (let i = 0; i < numberList.length; i++) {
+    let number = numberList[i];
+
+    while (number > 0) {
+      let lastCurrNumber = number % 10;
+      number = Math.trunc(number / 10);
+
+      sum += lastCurrNumber;
+    }
+  }
+
+  return sum;
+}
+
+console.log(sumAllDigits([123, 4]));
+console.log(sumAllDigits([1234, 55]));
+
+function sumAllMinDigits(numberList) {
+  if (!Array.isArray(numberList) || numberList.length === 0) return 0;
+
+  let sum = 0;
+
+  for (let i = 0; i < numberList.length; i++) {
+    let number = numberList[i];
+    sum += findMin(number);
+  }
+
+  return sum;
+}
+
+function findMin(number) {
+  let min = 10;
+  let remaining = number;
+
+  while (remaining > 0) {
+    let digit = remaining % 10;
+    if (min > digit) {
+      min = digit;
+    }
+
+    remaining = Math.trunc(remaining / 10);
+  }
+
+  return min;
+}
+console.log(sumAllMinDigits([123, 532, 567]));
+
+//30/09/2021
+
+function insert(numberList, newNumber) {
+  if (!Array.isArray(numberList)) return [];
+
+  numberList.push(newNumber);
+
+  for (let i = 0; i < numberList.length - 1; i++) {
+    for (let j = i + 1; j < numberList.length; j++) {
+      let currNumber = numberList[i];
+      let nextNumber = numberList[j];
+
+      let temp;
+      if (currNumber > nextNumber) {
+        temp = numberList[i];
+        numberList[i] = numberList[j];
+        numberList[j] = temp;
+      }
+    }
+  }
+
+  return numberList;
+}
+console.log(insert([1, 2, 4], 3)); // [1, 2, 3, 4]
+console.log(insert([1, 2, 3], 3)); // [1, 2, 3, 3]
+
+function findAllNumbers(numberList) {
+  if (!Array.isArray(numberList) || numberList.length === 0) return [];
+
+  let newArr = [];
+
+  for (let i = 0; i < numberList.length; i++) {
+    let number = numberList[i];
+    let min = [];
+
+    while (number > 0) {
+      let digit = number % 10;
+      number = Math.trunc(number / 10);
+
+      min.push(digit);
+    }
+
+    if (min[min.length - 1] % 2 !== 0) {
+      newArr.push(numberList[i]);
+    }
+  }
+
+  return newArr;
+}
+
+console.log(findAllNumbers([234, 421, 123])); // [123]
+console.log(findAllNumbers([1, 5, 6])); // [1, 5]
+
+/**
+ * [1,2,3,4,5] => length = 5
+ *  0 1 2 3 4 =>> index => [3] = 4
+ */
+
+function findAllNumbers(numberList) {
+  if (!Array.isArray(numberList) || numberList.length === 0) return [];
+
+  let newArr = [];
+  let evenNumber;
+  let indexFirstEvenNumber;
+
+  // ! get first even Number
+  for (let i = 0; i < numberList.length; i++) {
+    let currNumber = numberList[i];
+
+    if (currNumber % 2 === 0) {
+      evenNumber = numberList[i];
+      break;
+    }
+  }
+
+  //? get index first evenNumber in numberList
+  indexFirstEvenNumber = numberList.indexOf(evenNumber);
+
+  // numberList = numberList.slice(indexFirstEvenNumber + 1);
+
+  //run last length numberList to > first index of evenNumber
+  for (j = numberList.length - indexFirstEvenNumber; j > indexFirstEvenNumber; j--) {
+    let currNumber = numberList[j];
+
+    if (currNumber === evenNumber) {
+      newArr.push(numberList[j]);
+    }
+  }
+
+  return newArr;
+}
+
+console.log(findAllNumbers([1, 4, 5, -6, 4, 5, 4]));
+
+function findAllNumbersV2(numberList) {
+  if (!Array.isArray(numberList) || numberList.length === 0) return [];
+
+  let indexFirstEvenNumber = numberList.findIndex((number) => number % 2 === 0);
+  return numberList
+    .slice(indexFirstEvenNumber + 1)
+    .filter((number) => number === numberList[indexFirstEvenNumber]);
+}
+console.log(findAllNumbersV2([1, 2, 5]));
+/**
+ * length: 7
+ * index: 1
+ * 7 - 1 = 6
+ * 6 : 4
+ * 5 : 5
+ * 4 : 4
+ * 3 : -6
+ * 2 : 5
+ * 1 : 4
+ */
+
+function generatePrimeNumbers(n) {
+  const numberList = Array.from({ length: n }, (_, idx) => idx + 1);
+
+  let primeNumberList = [];
+
+  for (let i = 0; i < numberList.length; i++) {
+    let number = numberList[i];
+
+    if (isPrime(number)) {
+      primeNumberList.push(number);
+    }
+  }
+
+  return primeNumberList;
+}
+
+function isPrime(number) {
+  if (number < 2) {
+    return false;
+  }
+
+  for (let i = 2; i < number; i++) {
+    if (number % i === 0) {
+      return false;
+    }
+  }
+
+  return true;
+}
+
+console.log(generatePrimeNumbers(20));
+console.log(generatePrimeNumbers(10));
+
+function findNumbers(numberList) {
+  if (!Array.isArray(numberList) || numberList.length === 0) return [];
+
+  let newArr = [];
+
+  for (let i = 0; i < numberList.length; i++) {
+    let currNumber = numberList[i];
+    let nextNumber = numberList[i + 1];
+
+    if (nextNumber > currNumber) {
+      newArr.push(numberList[i + 1]);
+    }
+  }
+
+  return newArr.slice(1);
+}
+
+console.log(findNumbers([1, 3, 2, 5, 3, 7]));
+
+function generateNumberInRange(a, b) {
+  if (b < a) return [];
+
+  let newArr = [];
+
+  for (let i = a; i <= b; i++) {
+    newArr.push(i);
+  }
+
+  return newArr;
+}
+console.log(generateNumberInRange(1, 5));
+
+function findLastPerfectSquare(numberList) {
+  if (!Array.isArray(numberList) || numberList.length === 0) return [];
+
+  let newArr = [];
+
+  for (let i = 0; i < numberList.length; i++) {
+    let number = numberList[i];
+
+    if (isperfectNumber(number)) {
+      newArr.push(numberList[i]);
+    }
+  }
+
+  return newArr[newArr.length - 1];
+}
+
+function isperfectNumber(number) {
+  if (!Number(number)) return false;
+
+  let sqrtNumber = Math.sqrt(number);
+
+  if (sqrtNumber * sqrtNumber === number) return true;
+
+  return false;
+}
+console.log(findLastPerfectSquare([4, 16, 25, 36, 40]));
+
+function findSecondLargestNumber(numberList) {
+  if (!Array.isArray(numberList) || numberList.length === 0) return [];
+
+  for (let i = 0; i < numberList.length - 1; i++) {
+    for (let j = i + 1; j < numberList.length; j++) {
+      let currNumber = numberList[i];
+      let nextNumber = numberList[j];
+
+      let temp;
+
+      if (currNumber < nextNumber) {
+        temp = numberList[i];
+        numberList[i] = numberList[j];
+        numberList[j] = temp;
+      }
+    }
+  }
+
+  return numberList[1];
+}
+console.log(findSecondLargestNumber([1, 2, 3, 4]));
+
+function findLastNegativeOdd(numberList) {
+  if (!Array.isArray(numberList) || numberList.length === 0) return 0;
+
+  let lastNumber;
+
+  for (let i = 0; i < numberList.length; i++) {
+    let number = numberList[i];
+
+    if (number < 0 && number % 2 !== 0) {
+      lastNumber = number;
+    }
+  }
+
+  return lastNumber;
+}
+
+console.log(findLastNegativeOdd([-1, -3, -5]));
+console.log(findLastNegativeOdd([1, 3, 5]));
+
+function findFirstPositiveEven(numberList) {
+  if (!Array.isArray(numberList) || numberList.length === 0) return 0;
+
+  let firstNumber;
+
+  for (let i = 0; i < numberList.length; i++) {
+    let number = numberList[i];
+
+    if (number > 0 && number % 2 === 0) {
+      firstNumber = number;
+      break;
+    }
+  }
+
+  return firstNumber;
+}
+
+console.log(findFirstPositiveEven([1, 4, 2, 5]));
+console.log(findFirstPositiveEven([1, 3, 5]));
+
+function findMinPositive(numberList) {
+  if (!Array.isArray(numberList) || numberList.length === 0) return undefined;
+
+  let newArr = [];
+
+  for (let i = 0; i < numberList.length; i++) {
+    let number = numberList[i];
+
+    if (number > 0) {
+      newArr.push(number);
+    }
+  }
+
+  let minNumberInArr = newArr[0]; //1
+
+  for (let j = 1; j < newArr.length; j++) {
+    let currNumber = newArr[j];
+
+    if (currNumber < minNumberInArr) {
+      minNumberInArr = currNumber;
+    }
+  }
+
+  return minNumberInArr;
+}
+
+console.log(findMinPositive([])); // undefined
+console.log(findMinPositive([-1, -5])); // undefined
+console.log(findMinPositive([-1, -5, 3, 6, 2, 1, 5])); // 2
+
+function isSymmetricList(numberList) {
+  if (!Array.isArray(numberList) || numberList.length === 0) return false;
+
+  let reverseNumberList = [];
+
+  for (let i = numberList.length - 1; i >= 0; i--) {
+    let number = numberList[i];
+    reverseNumberList.push(number);
+  }
+
+  return reverseNumberList.toString() === numberList.toString();
+}
+
+console.log(isSymmetricList([])); // false
+console.log(isSymmetricList([1])); // true
+console.log(isSymmetricList([1, 2, 2, 1])); // true
+console.log(isSymmetricList([1, 2, 3])); // false
+
+function findMostFrequentNumber(numberList) {
+  if (!Array.isArray(numberList) || numberList.length === 0) return 0;
+
+  let objNumber = {};
+
+  for (let i = 0; i < numberList.length; i++) {
+    let number = numberList[i];
+
+    objNumber[number] = (objNumber[number] || 0) + 1;
+  }
+
+  let values = Object.values(objNumber);
+
+  let max = Math.max(...values);
+
+  for (let key in objNumber) {
+    if (objNumber[key] === max) {
+      return Number(key);
+    }
+  }
+}
+
+console.log(findMostFrequentNumber([1, 2, 2, 2, 2, 2, 3, 2, 3, 3, 3, 4]));
+
+function fibonancy(n) {
+  let newArr = [0, 1];
+
+  for (let i = 2; i < n; i++) {
+    if (newArr[i - 2] + newArr[i - 1] < 100) {
+      newArr.push(newArr[i - 2] + newArr[i - 1]);
+    }
+  }
+
+  return newArr;
+}
+console.log(fibonancy(10));
+
+// 0 1 => 
+/**
+ * i: 2
+ * 0 + 1 = 1
+ * i:3
+ * 1+1=2
+ * i:4
+ * 1+2=3
+ * i:5
+ * 3+2=5
+ * i:6
+ * 5+3=8
+ * i:7
+ * 8+5=13
+ */

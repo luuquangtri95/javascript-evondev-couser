@@ -26,7 +26,7 @@ function insert(arr, newItem, k) {
   return newArr;
 }
 
-// console.log(insert([1, 2, 3], 0, -1)); // [0, 1, 2, 3]
-// console.log(insert([1, 2, 3], 4, 10)); // [1, 2, 3, 4]
-// console.log(insert([1, 2, 3], 10, 2)); // [1, 2, 10, 3]
+console.log(insert([1, 2, 3], 0, -1)); // [0, 1, 2, 3]
+console.log(insert([1, 2, 3], 4, 10)); // [1, 2, 3, 4]
+console.log(insert([1, 2, 3], 10, 2)); // [1, 2, 10, 3]
 console.log(insert([1, 3, 4], 2, 1));

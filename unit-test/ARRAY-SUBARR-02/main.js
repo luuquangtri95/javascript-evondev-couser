@@ -35,4 +35,4 @@ function findAllDecreasingSubArr(numberList) {
   return subArrList;
 }
 
-console.log(findAllDecreasingSubArr([3, 2, 1, 15, 10, 20, 5]));
+console.log(findAllDecreasingSubArr([3, 2, 1, 15, 10, 9, 10]));

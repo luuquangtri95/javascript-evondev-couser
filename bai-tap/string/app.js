@@ -126,14 +126,19 @@ function formatTime(seconds) {
 
   //processing
   if (seconds < 10) return `00:00:0${seconds}`;
+
   let min = Math.trunc(seconds / SECONDS_PER_MIN);
+
   let hour = Math.trunc(min / SECONDS_PER_MIN).toString();
+
   hour = '0'.concat(hour).slice(-2);
+
   min = min % 60;
+
   let s = seconds.toString().slice(-2);
   return `${hour}:${min}:${s}`;
 }
-console.log(formatTime(4256));
+console.log(formatTime(32648));
 
 /**
  * viết hàm isSecureUrl(url) nhận vào url và trả về true nếu url có sử dụng phuong thức boả mật
@@ -145,7 +150,7 @@ function isSecureUrlV2(url) {
   if (url.startsWith('https') || url.startsWith('wss')) return true;
   return false;
 }
-console.log(isSecureUrl('https://abc.com'));
+console.log(isSecureUrlV2('http://https://abc.com'));
 
 //indexOf
 function isSecureUrlV1(url) {
@@ -154,7 +159,7 @@ function isSecureUrlV1(url) {
   }
   return false;
 }
-console.log(isSecureUrlV1('https://abc.com'));
+console.log(isSecureUrlV1('http://https://abc.com'));
 
 /**
  * viết hàm extractDomain(email) nhập vào địa chỉ email trả về domain sau kí tư @
@@ -237,3 +242,56 @@ function getFullName(firstName, lastName) {
   }
 }
 console.log(getFullName('joIn', ''));
+
+function formatTime(seconds) {
+  // Sử lý số giây số phút
+  let result = seconds;
+  let second = result % 60;
+  result = Math.trunc(result / 60);
+  let minutes = result % 60;
+  let hour = Math.trunc(result / 60);
+
+  let secondExport;
+  let minutesExport;
+  let hourExport;
+
+  //   Biến số thành chuổi thêm 0 trước số <10
+  if (second < 10) {
+    secondExport = `0${second}`;
+  } else {
+    secondExport = `${second}`;
+  }
+  if (minutes < 10) {
+    minutesExport = `0${minutes}`;
+  } else {
+    minutesExport = `${minutes}`;
+  }
+  if (hour < 10) {
+    hourExport = `0${hour}`;
+  } else {
+    hourExport = `${hour}`;
+  }
+
+  //   Xuất đúng định dạng
+  return `${hourExport}:${minutesExport}:${secondExport}`;
+}
+
+console.log(formatTime(4206));
+
+//=>>>>>>>>>>>>>>>>>>>>>
+const SECONDS_PER_HOUR = 3600;
+const SECONDS_PER_MIN = 60;
+
+function formatTime(seconds) {
+  if (seconds < 0) return -1;
+  if (seconds < 10) return `00:00:0${seconds}`;
+
+  //calc hour, min, sec
+  let hour = Math.trunc(seconds / SECONDS_PER_HOUR).toString();
+  seconds = seconds % 3600;
+  let min = Math.trunc(seconds / SECONDS_PER_MIN).toString();
+  let sec = Math.trunc(seconds % 60).toString();
+
+  return `${('0' + hour).slice(-2)}:${('0' + min).slice(-2)}:${('0' + sec).slice(-2)}`;
+}
+console.log(formatTime(40634));
