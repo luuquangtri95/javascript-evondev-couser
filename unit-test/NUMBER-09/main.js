@@ -45,4 +45,4 @@ export function hasTwoDigitsWithSum(n, sum) {
   return false;
 }
 
-console.log(hasTwoDigitsWithSum(242, 4));
+console.log(hasTwoDigitsWithSum(211, 4));

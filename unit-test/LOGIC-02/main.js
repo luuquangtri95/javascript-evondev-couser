@@ -8,7 +8,7 @@ Chắc chắn sẽ luôn có một con số bị thiếu trong mảng (ko hơn, 
 
 function findMissingNumber(numberList, n) {
   if (!Array.isArray(numberList) || numberList.length === 0) return [];
-  let arrN = Array.from({ length: n }, (_, idx) => idx + 1).filter((item) => item > 5);
+  let arrN = Array.from({ length: n }, (_, idx) => idx + 1).filter((item) => item >= 5);
 
   for (let i = 0; i < numberList.length; i++) {
     let number = numberList[i];
