@@ -1201,11 +1201,123 @@ function findSumPairV2(numberList, targetSum) {
   let subArr = [];
   let subArrList = [];
 
-  for (let i = 0; i < numberList.length - 1; i++) {
-    let currNumber = numberList[i]; // 3
-    let nextNumber = numberList[i + 1]; //2
+  for (let i = 0; i < numberList.length; i++) {
+    let currNumber = numberList[i];
+    let nextNumber = numberList[i + 1];
+
+    if (nextNumber + currNumber === targetSum) {
+      subArr.push(currNumber, nextNumber);
+      subArr.sort();
+
+      if (subArr.length === 2) subArrList.push(subArr);
+
+      subArr = [];
+    }
+
+    if (currNumber === targetSum) {
+      subArr.push(currNumber);
+    }
+
+    if (i === numberList.length - 1 || subArr.length === 1) {
+      subArrList.push(subArr);
+
+      subArr = [];
+    }
   }
 
   return subArrList;
 }
 console.log(findSumPairV2([5, 3, 2, 1, 4, 5], 5));
+
+function findSumPairV3(numberList, targetSum) {
+  if (!Array.isArray(numberList) || numberList.length === 0) return [];
+
+  let subArr = [];
+  let subArrList = [];
+
+  for (let i = 0; i < numberList.length; i++) {
+    let currNumber = numberList[i];
+    let nextNumber = numberList[i + 1];
+
+    if (currNumber === targetSum) {
+      subArr.push(currNumber);
+    }
+
+    if (currNumber + nextNumber !== targetSum) {
+      if (subArr.length >= 1) {
+        subArrList.push(subArr);
+
+        subArr = [];
+      }
+      continue;
+    }
+
+    subArr.push(currNumber, nextNumber);
+  }
+
+  return subArrList;
+}
+console.log(findSumPairV3([5, 3, 2, 1, 4, 5], 5));
+
+//array subarr 06
+
+function findMaxSumArray(numberList) {
+  if (!Array.isArray(numberList) || numberList.length === 0) return [];
+
+  let subArr = [numberList[0]];
+  let subArrList = [];
+
+  for (let i = 1; i < numberList.length; i++) {
+    let currNumber = numberList[i];
+    let prevNumber = numberList[i - 1];
+
+    if (currNumber <= prevNumber) {
+      if (subArr.length > 2) {
+        subArrList.push(subArr);
+
+        subArr = [currNumber];
+      }
+
+      continue;
+    }
+
+    subArr.push(currNumber);
+
+    if (i === numberList.length - 1 && subArr.length > 2) {
+      subArrList.push(subArr);
+    }
+  }
+
+  if (subArrList.length === 2) {
+    for (let i = 0; i < subArrList.length - 1; i++) {
+      if (sumArr(subArrList[i]) >= sumArr(subArrList[i + 1])) {
+        return subArrList[i];
+      } else {
+        return subArrList[i + 1];
+      }
+    }
+  }
+  F;
+
+  let maxSumArr = sumArr(subArrList[0]);
+
+  for (let i = 1; i < subArrList.length; i++) {
+    if (maxSumArr > sumArr(subArrList[i])) {
+      continue;
+    }
+
+    maxSumArr = subArrList[i];
+  }
+
+  return subArrList.find((item) => sumArr(item) === sumArr(maxSumArr));
+}
+
+function sumArr(arr) {
+  if (!Array.isArray(arr) || arr.length === 0) return 0;
+
+  let sum = 0;
+
+  return arr.reduce((prev, curr) => prev + curr, sum);
+}
+
+console.log(findMaxSumArray([1, 2, 3, 0, 2, 4, 1, 6, 7, 6, 8, 9, 8, 10, 11, 7, 10, 12]));
