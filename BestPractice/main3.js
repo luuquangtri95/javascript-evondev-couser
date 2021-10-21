@@ -1405,6 +1405,3 @@ console.log(hasTwoDigitsWithSum(242, 4));
  * => if(2 === 4|| 2 === 4 )
  *
  */
-
-
-

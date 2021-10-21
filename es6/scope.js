@@ -41,9 +41,47 @@ console.log(name); //biến name bị giới hạn trong hàm sayHello()
 // !: lexical scope
 /**
  * từ 1 biến nắm bên trong có thể truy cập 1 biến nằm bên ngoài
+ * => tìm ra cái nơi mà biến đc định nghĩa
  */
+
+const name = 'tri';
+function sayHello() {
+  const language = 'en';
+  console.log(name); // lexical cuar biến name là 1 global scope
+
+  function print() {
+    console.log(language); // lexical của biến language là 1 function scope => hàm sayHello()
+  }
+}
 
 // !: global scope
 /**
  * không năm trong bất cứ hàm nào
+ * => tuỳ vào môi trường sẽ có global obj khác nhau
  */
+
+// !: scope chain
+
+const fullName = 'tri';
+function profile() {
+  const fullName = 'bi';
+
+  function sayName() {
+    const fullName = 'tri bi';
+
+    function writeName() {
+      return fullName; // nó sẽ đi ngược lên tìm kiếm global scope
+
+      /**
+       * nó sẽ tìm trong hàm writeName có biến fullname k ?
+       * nếu k có thì đi lên sayName()
+       * nếu tiếp tục không có thì tìm profle()
+       * nếu tiếp tục không có thì tìm global scope
+       * nếu tiếp tục không có thì return "undefined"
+       */
+    }
+
+    return writeName();
+  }
+  return sayName();
+}
