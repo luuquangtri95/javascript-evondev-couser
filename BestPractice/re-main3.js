@@ -1259,6 +1259,43 @@ function findSumPairV3(numberList, targetSum) {
 }
 console.log(findSumPairV3([5, 3, 2, 1, 4, 5], 5));
 
+function findSumPairV4(numberList, targetSum) {
+  if (!Array.isArray(numberList) || numberList.length === 0) return [];
+
+  let subArr = [];
+  let subArrList = [];
+
+  for (let i = 0; i < numberList.length; i++) {
+    let currNumber = numberList[i];
+    let nextNumber = numberList[i + 1];
+
+    if (currNumber === targetSum) {
+      subArr.push(currNumber);
+    }
+
+    if (currNumber + nextNumber !== targetSum) {
+      if (subArr.length >= 1) {
+        subArrList.push(subArr);
+
+        subArr = [];
+      }
+      continue;
+    }
+
+    subArr.push(currNumber, nextNumber);
+    subArr.sort();
+
+    if (i === numberList.length - 1 || subArr.length === 2) {
+      subArrList.push(subArr);
+
+      subArr = [];
+    }
+  }
+
+  return subArrList;
+}
+console.log(findSumPairV4([3, 2, 1, 5, 1, 4, 1, 2, 3], 5));
+
 //array subarr 06
 
 function findMaxSumArray(numberList) {
